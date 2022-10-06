@@ -134,8 +134,14 @@
 .ans button {
         padding: 14px 40px;
     border-radius: 5px;
+    background-color: #262d38;
+    border: 1px solid #262d38;
+    color: #fff;
 }
 
+.errorColor {
+   color: red;
+}
 .boxShodow {
     background-color: #82868d;
     
@@ -160,6 +166,7 @@
 .colorSecondary {
    border: 2px solid #eee;
    background-color: #FFFF;
+   cursor: pointer;
 }
 
 
@@ -168,7 +175,7 @@
     position: relative;
     margin-right: 0px;
     margin-left: 0px;
-    border-bottom: 8px solid blue;
+    border-bottom: 8px solid none;
     border-radius: 25px 25px 0px 0px;
     margin-top: -2px;
     width: 100%;
@@ -178,12 +185,12 @@
     position: absolute;
     left: 0;
     bottom: -2px;
-    height: 7px;
-    background-color: #f96822;
+    height: 5px;
+    background-color: #2ecc71;
     display: inline-block;
-    border-radius: 25px 25px 25px 25px;
+    border-radius: 25rem 25rem 25px 25px;
     top: 0.5px;
-    margin: 0px;
+    margin: 0px 1px;
 }
 
 .ScoreView {
@@ -194,7 +201,7 @@
     position: relative;
     margin-right: 0px;
     margin-left: 0px;
-    border-bottom: 8px solid blue;
+    border-bottom: 8px solid #2ecc71;
     border-radius: 25px 25px 25px 25px;
     margin-top: -2px;
     width: 100%;   

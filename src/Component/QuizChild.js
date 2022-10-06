@@ -40,7 +40,7 @@ const QuizChild = () => {
   const [open, setOpen] = useState(false);
   const [Item, setItem] = useState();
 
-  const [category, setCategory] = useState("Easy");
+  const [category , setCategory] = useState();
   const handleOpen = () => setOpen(false);
   const handleClose = () => setOpen(false);
   const ratingChanged = (newRating) => {};
@@ -107,6 +107,7 @@ const QuizChild = () => {
     console.log(Items);
     setItem(Items);
   };
+  const quizHigh = allQuestions[currentQuestionIndex]?.difficulty
 
   return (
     <>
@@ -136,97 +137,43 @@ const QuizChild = () => {
           </div>
         </div>
         <div className="modalStar">
-          <button className="lg-cato" onClick={handleOpen}>
             <div className="star">
-              {category == "Easy" && (
+              {quizHigh == "easy" && (
                 <>
                   <span className="starYellow">
-                    <AiFillStar />{" "}
+                    <AiFillStar />
                   </span>
                   <span>
                     <AiOutlineStar />
-                  </span>{" "}
-                  <AiOutlineStar />{" "}
+                  </span>
+                  <AiOutlineStar />
                 </>
               )}
-              {category == "Medium" && (
+              {quizHigh == "medium" && (
                 <>
-                  <span className="starYellow">
-                    <AiFillStar />{" "}
-                  </span>
-                  <span className="starYellow">
-                    <AiFillStar />
-                  </span>{" "}
-                  <AiOutlineStar />{" "}
-                </>
-              )}
-              {category == "Hard" && (
-                <>
-                  <span className="starYellow">
-                    <AiFillStar />{" "}
-                  </span>
                   <span className="starYellow">
                     <AiFillStar />
                   </span>
                   <span className="starYellow">
-                    <AiFillStar />{" "}
-                  </span>{" "}
+                    <AiFillStar />
+                  </span>
+                  <AiOutlineStar />
+                </>
+              )}
+              {quizHigh == "hard" && (
+                <>
+                  <span className="starYellow">
+                    <AiFillStar />
+                  </span>
+                  <span className="starYellow">
+                    <AiFillStar />
+                  </span>
+                  <span className="starYellow">
+                    <AiFillStar />
+                  </span>
                 </>
               )}
             </div>
-          </button>
-          <Modal
-            open={open}
-            onClose={handleClose}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
-          >
-            <Box sx={style}>
-              <div className="Modal">
-                <h3>Difficulty</h3>
-                <div>
-                  <span className="starYellow">
-                    {" "}
-                    <AiFillStar />{" "}
-                  </span>
-                  <span>
-                    <AiOutlineStar />
-                  </span>{" "}
-                  <AiOutlineStar />{" "}
-                  <button value="Easy" onClick={() => handleChange("Easy")}>
-                    Easy
-                  </button>
-                </div>
-                <div>
-                  <span className="starYellow">
-                    <AiFillStar />{" "}
-                  </span>{" "}
-                  <span className="starYellow">
-                    <AiFillStar />{" "}
-                  </span>
-                  <AiOutlineStar />
-                  <button value="Medium" onClick={() => handleChange("Medium")}>
-                    Medium
-                  </button>
-                </div>
-                <div>
-                  {" "}
-                  <span className="starYellow">
-                    <AiFillStar />{" "}
-                  </span>
-                  <span className="starYellow">
-                    <AiFillStar />{" "}
-                  </span>{" "}
-                  <span className="starYellow">
-                    <AiFillStar />{" "}
-                  </span>
-                  <button value="Hard" onClick={() => handleChange("Hard")}>
-                    Hard
-                  </button>
-                </div>
-              </div>
-            </Box>
-          </Modal>
         </div>
 
         <div className="category">
@@ -257,11 +204,15 @@ const QuizChild = () => {
           )}
         </div>
         <div className="ans">
+          {showNextButton ? ( 
+            <>
           {currentOptionSelected == correctOption ? (
             <p>Correct</p>
           ) : (
-            <p>Sorry</p>
+            <p className="errorColor" >Sorry</p>
           )}
+          </>
+          ) : null }
           {showNextButton ? (
             <button onClick={() => HandleQuestionNew()}>Next Question</button>
           ) : null}

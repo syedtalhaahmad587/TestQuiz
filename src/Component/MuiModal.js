@@ -47,14 +47,6 @@ export default function BasicModal() {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
-        <div className="Modal" >
-        <h3>Difficulty</h3>
-        <Button onClick={() => handleChange(1)}  size="small" > <p><span className='starYellow' ><AiFillStar /> </span><span><AiOutlineStar /></span> <AiOutlineStar /> Easy</p></Button>
-        <Button onClick={() => handleChange(2)}  size="small" > <p><span className='starYellow' ><AiFillStar /> </span> <span className='starYellow' ><AiFillStar /> </span><AiOutlineStar />medium  </p></Button>
-        <Button onClick={() => handleChange(3)} size="small" ><p><span className='starYellow' ><AiFillStar /> </span><span className='starYellow' ><AiFillStar /> </span> <span className='starYellow' ><AiFillStar /> </span> hard</p></Button>
-      </div>
-        </Box>
       </Modal>
     </div>
   );
