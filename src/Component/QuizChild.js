@@ -238,7 +238,7 @@ const QuizChild = () => {
               
             </>
           ) : null}
-          
+           {/* <p   */}
         </div>
       </div>
        : <div className="parentExcess parentChid " >

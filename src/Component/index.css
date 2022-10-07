@@ -222,8 +222,38 @@
     top: 0.5px;
 }
 
+.countScoreError {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 7px;
+    background:red;
+    display: inline-block;
+    border-radius: 25px 25px 25px 25px;
+    top: 0.5px;
+    width: 25px;
+    margin: 0px;    
+    top: 0.5px;
+}
+
+
 .colorErrorWidth {
     width: 50%;
+}
+.countScoreNormal {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 7px;
+    background: #eee;
+    display: inline-block;
+    border-radius: 25px 25px 25px 25px;
+    top: 0.5px;
+    width: 25px;
+    margin: 0px;    
+    top: 0.5px;
 }
 
 .scoreText {
