@@ -201,7 +201,7 @@
     position: relative;
     margin-right: 0px;
     margin-left: 0px;
-    border-bottom: 8px solid #2ecc71;
+    border-bottom: 8px solid #eee;
     border-radius: 25px 25px 25px 25px;
     margin-top: -2px;
     width: 100%;   
@@ -220,6 +220,10 @@
     width: 25px;
     margin: 0px;    
     top: 0.5px;
+}
+
+.colorErrorWidth {
+    width: 50%;
 }
 
 .scoreText {
@@ -306,4 +310,36 @@
         /* flex-wrap: wrap; */
         flex-direction: column-reverse;
     }
+}
+
+.colorSuccessAnswer {
+    color: #00C851;
+}
+
+.scoreEqually {
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+}
+
+.parentChid {
+     text-align: center;
+     padding: 25px 0px;
+}
+
+.QuizRestart {
+    padding: 14px 40px;
+    border-radius: 5px;
+    background-color: #262d38;
+    border: 1px solid #262d38;
+    color: #fff;   
+}
+
+.percentageLength {
+    font-size: 18px;
+}
+
+.congress {
+    font-size: 25px;
+    color: #00C851;
 }

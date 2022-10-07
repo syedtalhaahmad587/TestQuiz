@@ -39,7 +39,6 @@ const QuizChild = () => {
   const [quizEnd, setQuizEnd] = useState(false);
   const [open, setOpen] = useState(false);
   const [Item, setItem] = useState();
-
   const [category , setCategory] = useState();
   const handleOpen = () => setOpen(false);
   const handleClose = () => setOpen(false);
@@ -89,7 +88,7 @@ const QuizChild = () => {
     if (time >= 0) {
       showTimer(time--);
     } else {
-      time = 10;
+      time = 0;
       if (currentQuestionIndex === allQuestions.length - 1) {
         setShowNextButton(false);
       } else {
@@ -98,25 +97,30 @@ const QuizChild = () => {
       }
     }
   }
-  const handleChange = (value) => {
-    setCategory(value);
-    setOpen(false);
-    const Items = allQuestions.filter((current) => {
-      return current.difficulty === value;
-    });
-    console.log(Items);
-    setItem(Items);
-  };
+  const StartQuiz = () => {
+    setQuizEnd(false);
+    setCurrentQuestionIndex(0);
+    setScore(0);
+
+    setCurrentOptionSelected(null);
+    setCorrectOption(null);
+    setIsOptionsDisabled(false);
+    setShowNextButton(false);
+    
+  
+
+  }
   const quizHigh = allQuestions[currentQuestionIndex]?.difficulty
 
   return (
     <>
+    {!quizEnd  ?  
       <div className="parentExcess">
         <p className="count"></p>
         <p
           className="countLine"
           style={{
-            width: (currentQuestionIndex + 1 / allQuestions.length) * 25,
+            width: (currentQuestionIndex  / allQuestions.length) * 100 + "%",
           }}
         ></p>
         <p className="entertainment">
@@ -218,23 +222,34 @@ const QuizChild = () => {
           ) : null}
         </div>
         <div className="scoreText">
-          <p>Score: {(score / allQuestions.length) * 75}%</p>
-          <p>Max: 75%</p>
+          <p>Score: {(score / allQuestions.length) * 100 }%</p>
+          <p>Max: 100%</p>
         </div>
         <div className="ScoreView">
-          <p className="scoreRate"></p>
+          <p className="scoreRate" width={score < allQuestions.length/20 * 100  } ></p>
           {score ? (
             <>
               <p
                 className="countScore"
                 style={{
-                  width: (currentQuestionIndex + 1 / allQuestions.length) * 25,
+                  width: (score / allQuestions.length) * 100 + "%"
                 }}
               ></p>
+              
             </>
           ) : null}
+          
         </div>
       </div>
+       : <div className="parentExcess parentChid " >
+        <p className="congress" >Congratulations!</p>
+        <div className="scoreEqually" >
+        <p className={score > allQuestions.length/20 ? "colorSuccessAnswer" : "errorColor"   } >{score}/</p>
+        <p>{allQuestions.length}</p>
+        </div>
+        <p className="percentageLength" >{(score / allQuestions.length) * 100 }%</p>
+        <button className="QuizRestart" onClick={() => StartQuiz()} >ReStart Quiz</button>
+       </div> }
     </>
   );
 };
